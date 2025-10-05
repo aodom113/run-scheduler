@@ -1,0 +1,40 @@
+{
+    "name": "run-scheduler",
+    "build": {
+        "context": "../",
+        "dockerfile": "../Dockerfile",
+        "target": "dev"
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace/run-scheduler,type=bind"
+    ],
+    "workspaceFolder": "/workspace/run-scheduler",
+    "containerUser": "${localEnv:UID}:${localEnv:GID}",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "[python]": {
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    }
+                },
+                "ruff.interpreter": [
+                    "/root/.cache/pypoetry/virtualenvs/run-scheduler-oQwC5HxJ-py3.13/bin/python"
+                ],
+                "python.defaultInterpreterPath": "/root/.cache/pypoetry/virtualenvs/run-scheduler-oQwC5HxJ-py3.13/bin/python"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-azuretools.vscode-docker",
+                "tamasfe.even-better-toml",
+                "eamodio.gitlens",
+                "charliermarsh.ruff"
+            ]
+        }
+    },
+    "runArgs": [
+        "--network=host"
+    ]
+}

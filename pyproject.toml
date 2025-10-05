@@ -1,0 +1,59 @@
+[project]
+name = "run-scheduler"
+version = "0.1.0"
+
+requires-python = ">=3.12"
+
+dependencies = [
+    "pydantic (>=2.11.9,<3.0.0)",
+    "sphinx (>=8.2.3,<9.0.0)",
+    "sphinx-book-theme (>=1.1.4,<2.0.0)",
+    "sphinx-copybutton (>=0.5.2,<1.0.0)",
+    "tomli-w (>=1.2.0,<2.0.0)",
+]
+
+[project.optional-dependencies]
+dev = ["ruff (>=0.13.2,<1)", "pyright[nodejs] (>=1.1.405,<2.0.0)"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+
+line-length = 100
+
+[tool.ruff.format]
+
+docstring-code-format = true
+
+[tool.ruff.lint]
+
+select = [
+    "E",
+    "F",
+    "B",
+    "ANN",
+    "S",
+    "A",
+    "C4",
+    "DTZ",
+    "EM",
+    "FIX",
+    "FA",
+    "ISC",
+    "ICN",
+    "INP",
+    "PYI",
+    "PT",
+    "RET",
+    "SLF",
+    "SIM",
+    "TID",
+    "TC",
+    "ARG",
+    "PTH",
+    "I",
+    "NPY",
+    "N",
+]
